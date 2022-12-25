@@ -1,11 +1,11 @@
 let canvas;
-let ctx;
-let world = new World();
+let world;
 
 
 function init() {
     canvas = document.getElementById('canvas');   // Greift auf die ID canvas in HTML zu
-    ctx = canvas.getContext('2d');  // Definiert den Kontex das es sich um 2D handelt
+    world = new World(canvas);      // Neue Welt wird angelegt, Canvas wird als Variabel mit gegeben
+    
 
 
     // character.src = '../img/2_character_pepe/2_walk/W-21.png';  // Lädt das Charakter Bild W-21.png
