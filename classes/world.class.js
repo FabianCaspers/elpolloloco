@@ -6,6 +6,7 @@ class World {
     ctx;
     keyboard;
     camera_x = 0;
+    statusBar = new StatusBar();
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');  // Definiert den Kontex das es sich um 2D handelt
@@ -28,6 +29,7 @@ class World {
             this.level.enemies.forEach( (enemy) => {
                if( this.character.isColliding(enemy) ){
                 this.character.hit();
+                this.statusBar.setPercentage(this.character.energy);
                }
             });
         }, 200);
@@ -39,6 +41,9 @@ class World {
         this.ctx.translate(this.camera_x, 0);
 
         this.addObjectToMap(this.level.backgroundObjects);
+        this.ctx.translate(-this.camera_x, 0);
+        this.addToMap(this.statusBar);
+        this.ctx.translate(this.camera_x, 0);
         this.addToMap(this.character);
         this.addObjectToMap(this.level.clouds);
         this.addObjectToMap(this.level.enemies);
