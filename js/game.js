@@ -52,6 +52,4 @@ window.addEventListener("keyup", (e) => {
         keyboard.SPACE = false;
 
 
-    console.log(e);
-
 });
