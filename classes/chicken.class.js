@@ -5,6 +5,8 @@ class Chicken extends MovableObject {
     height = 60;
     width = 80;
 
+    chicken_sound = new Audio('audio/chicken.mp3')
+
     IMAGES_WALKING = [
         'img/3_enemies_chicken/chicken_normal/1_walk/1_w.png',
         'img/3_enemies_chicken/chicken_normal/1_walk/2_w.png',
@@ -16,9 +18,10 @@ class Chicken extends MovableObject {
     constructor() {
         super().loadImage('img/3_enemies_chicken/chicken_normal/1_walk/1_w.png');
         this.loadImages(this.IMAGES_WALKING);
-
+        
         this.x = 200 + Math.random() * 500; // Zahl zwischen 200 und 700       // Chicken haben Random Positionen
         this.speed = 0.15 + Math.random() * 0.5;
+        
 
         this.animate();
     }
@@ -27,10 +30,7 @@ class Chicken extends MovableObject {
         this.moveLeft();
 
         setInterval(() => {
-            let i = this.currentImage % this.IMAGES_WALKING.length;
-            let path = this.IMAGES_WALKING[i];
-            this.img = this.ImageCache[path];
-            this.currentImage++;
+            this.playAnimation(this.IMAGES_WALKING)
         }, 200);
     }
 }

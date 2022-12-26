@@ -7,6 +7,7 @@ class MovableObject {
     currenImage = 0;
     ImageCache = {};
     speed = 0.15;
+    otherDirection = false;
 
     // loadImage('img/test.png')
     loadImage(path) {
@@ -18,8 +19,16 @@ class MovableObject {
         arr.forEach((path) => {
             let img = new Image();
             img.src = path;
+            img.style = 'transform: scaleX(-1)';
             this.ImageCache[path] = img;
         });
+    }
+
+    playAnimation(images){
+    let i = this.currentImage % this.IMAGES_WALKING.length;
+                let path = images[i];
+                this.img = this.ImageCache[path];
+                this.currentImage++;
     }
 
 
