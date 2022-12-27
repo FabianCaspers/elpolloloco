@@ -1,34 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Pollo Loco</title>
+    <link rel="shortcut icon" href="./img/Favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <script src="classes/drawable-object.class.js"></script>
-    <script src="classes/movable-object.class.js"></script>
-    <script src="classes/character.class.js"></script>
-    <script src="classes/chicken.class.js"></script>
-    <script src="classes/cloud.class.js"></script>
-    <script src="classes/status-bar.class.js"></script>
-    <script src="classes/world.class.js"></script>
-    <script src="classes/background-object.class.js"></script>
-    <script src="classes/keybord.class.js"></script>
-    <script src="classes/level.class.js"></script>
-    <script src="classes/endboss.class.js"></script>
-    
-    <script src="levels/level1.js"></script>
-    <script src="js/game.js"></script>
+    <link rel="stylesheet" href="fonts.css">
+    <script src="./js/classes/drawable-object.class.js"></script>
+    <script src="./js/classes/status-bar.class.js"></script>
+    <script src="./js/classes/coin-bar.class.js"></script>
+    <script src="./js/classes/bar-endboss.class.js"></script>
+    <script src="./js/classes/bottle-bar.class.js"></script>
+    <script src="./js/classes/world.class.js"></script>
+    <script src="./js/classes/movable-object.class.js"></script>
+    <script src="./js/classes/character.class.js"></script>
+    <script src="./js/classes/chicken.class.js"></script>
+    <script src="./js/classes/small-chicken.class.js"></script>
+    <script src="./js/classes/endboss.class.js"></script>
+    <script src="./js/classes/cloud.class.js"></script>
+    <script src="./js/classes/background-object.class.js"></script>
+    <script src="./js/classes/keyboard.class.js"></script>
+    <script src="./js/classes/level.class.js"></script>
+    <script src="./js/classes/coin.class.js"></script>
+    <script src="./js/classes/throwable-object.class.js"></script>
+    <script src="js/classes/bottle.class.js"></script>
+    <script src="./js/levels/level1.js"></script>
+    <script src="./js/game.js"></script>
+    <title>El Pollo Loco</title>
 </head>
-<body onload="init()">
 
+
+
+<body id="Fullscreen" onload="checkScreen()">
     <h1>El Pollo Loco</h1>
 
+    <div id="content">
+        <canvas id="canvas" height="480" width="720"></canvas>
 
-    <canvas id="canvas" width="720" height="480">
+        <div id="mobile-buttons">
+            <div id="walk-buttons">
+                <div id="walk-button-left" class="game-button">
+                    <img src="./img/btnleft.png">
+                </div>
+                <div id="walk-button-right" class="game-button">
+                    <img src="./img/btnright.png">
+                </div>
+            </div>
+            <div id="action-buttons">
+                <div id="jump-button" class="game-button">
+                    <img src="./img/btnup.png">
+                </div>
+                <div id="shoot-button" class="game-button">
+                    <img src="./img/btnshoot.png">
+                </div>
 
-    </canvas>
-    
+            </div>
+
+        </div>
+
+        <div id="startscreen-container">
+            <img id="startscreen" src="./img/9_intro_outro_screens/start/startscreen_1.png">
+            <img id="play-btn" onclick="init(), initLevel()" src="./img/spiel.png">
+        </div>
+
+        <div id="endscreen-container" class="d-none">
+            <img id="endscreen" src="./img/9_intro_outro_screens/game_over/game over!.png">
+            <img id="restart-btn" onclick="restart()" src="./img/restart.png">
+        </div>
+
+        <div id="speaker" class="game-button">
+            <img onclick="muteAudio()" id="audioOn" src="./img/speaker.png">
+            <img onclick="turnSoundOn()" id="audioOff" class="d-none" src="./img/mute.png">
+        </div>
+
+    </div>
+    <div class="howTopPlay">
+        <div class="explain-game">
+        <div>
+            <img class="arrows" src="img/arrows.png" alt="">
+            <p>Walk</p>
+        </div>
+        <div>
+            <img class="*" src="img/space.png" alt="">
+            <p>Jump</p>
+        </div>
+        <div>
+            <img class="*" src="img/d.png" alt="">
+            <p>Throw Item</p>
+        </div>
+    </div>
+
+    </div>
+
+    <div id="turnPhone" class="turnphone">
+        <img src="./img/drehen.png">
+        <p>Turn Phone</p>
+    </div>
+
+
+
 </body>
+
 </html>

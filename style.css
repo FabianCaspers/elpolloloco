@@ -2,8 +2,255 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background-image: url('img/bg.jpg');
+    background-size: cover;
+    font-family: 'Zabars', sans-serif;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+
+}
+
+#content {
+    position: relative;
+}
+
+#startscreen {
+    width: 720px;
+    height: 480px;
+    position: absolute;
+    top: 0;
+    ;
+}
+
+#endscreen {
+    width: 720px;
+    height: 480px;
+    position: absolute;
+    top: 0;
+}
+
+#play-btn {
+    position: absolute;
+    width: 100px;
+    top: 15%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    cursor: pointer;
+}
+
+#play-btn:hover {
+    cursor: pointer;
+    scale: 1.1;
+    transition: all 225ms ease-in-out;
+}
+
+
+#restart-btn {
+    position: absolute;
+    width: 80px;
+    top: 70%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    cursor: pointer;
+}
+
+#restart-btn:hover {
+    cursor: pointer;
+    scale: 1.1;
+    transition: all 225ms ease-in-out;
+}
+
+h1 {
+    font-size: 42px;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    margin: 20px;
+
 }
 
 canvas {
     background-color: black;
+
+}
+
+#mobile-buttons {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#walk-buttons {
+    display: flex;
+}
+
+#action-buttons {
+    display: flex;
+}
+
+.howTopPlay {
+    width: 720px;
+    font-size: 28px;
+    margin-top: 12px;
+}
+
+.Fullscreen {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.arrows {
+    width: 64px;
+    height: 64px;
+}
+
+.explain-game {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.turnphone {
+    display: flex;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.turnphone img {
+    width: 40px;
+    height: 40px;
+}
+
+.game-button {
+    background-color: goldenrod;
+    border-radius: 4px;
+    border-style: solid 2px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    margin-left: 20px;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.game-button img {
+    width: 32px;
+    height: 32px;
+}
+
+#speaker {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+
+@media only screen and (max-width:720px) {
+    #content {
+        width: 100%;
+    }
+
+    canvas {
+        width: 100%;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    #startscreen {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #endscreen {
+        width: 100vw;
+        height: 100vh;
+    }
+
+
+    body {
+        margin: 0;
+    }
+
+    #mobile-buttons {
+        display: flex;
+    }
+
+    .howTopPlay {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:920px) {
+    #content {
+        width: 100%;
+    }
+
+    canvas {
+        width: 100%;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    #startscreen {
+        width: 100%;
+        height: 100%;
+    }
+
+    #endscreen {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    body {
+        margin: 0;
+    }
+
+    #mobile-buttons {
+        display: flex;
+    }
+
+    .howTopPlay {
+        display: none;
+    }
+
+}
+
+
+@media only screen and (max-height:480px) {
+    #content {
+        height: 100vh;
+    }
+
+    canvas {
+        height: 100vh;
+    }
+
+    #mobile-buttons {
+        display: flex;
+    }
+
+    .howTopPlay {
+        display: none;
+    }
+
+}
+
+.d-none {
+    display: none;
 }
