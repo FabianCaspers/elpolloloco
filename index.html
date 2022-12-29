@@ -34,9 +34,9 @@
 
 
 <body id="Fullscreen" onload="checkScreen()">
-    <h1>El Pollo Loco</h1>
+    <h1 id="headline">El Pollo Loco</h1>
 
-    <div id="content">
+    <div id="content" >
         <canvas id="canvas" height="480" width="720"></canvas>
 
         <div id="mobile-buttons">
@@ -54,6 +54,10 @@
                 </div>
                 <div id="shoot-button" class="game-button">
                     <img src="./img/btnshoot.png">
+                </div>
+
+                <div id="fullscreen" class="fullscreen-button">
+                    <img onclick="setFullscreen()" src="./img/fullscreen.png">
                 </div>
 
             </div>
@@ -74,6 +78,7 @@
             <img onclick="muteAudio()" id="audioOn" src="./img/speaker.png">
             <img onclick="turnSoundOn()" id="audioOff" class="d-none" src="./img/mute.png">
         </div>
+       
 
     </div>
     <div class="howTopPlay">

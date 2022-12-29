@@ -16,7 +16,6 @@ class World {
     coin_sound = new Audio("./audio/coin.mp3");
     pickup_sound = new Audio("./audio/pickup.mp3");
     hit_sound = new Audio("./audio/hit.mp3");
-    bg_Sound = new Audio('./audio/bg-sound.mp3');
     endboss = new Endboss();
 
 
@@ -28,26 +27,11 @@ class World {
         this.ctx = canvas.getContext("2d");
         this.draw();
         this.setWorld();
-        this.playBgSound(); 
         this.run();
           
     }
 
-    playBgSound() {
-        this.level.enemies.forEach((enemy) => {
-        setInterval(() => {
-            if (!stopAudio || !(enemy.isDead() && enemy instanceof Endboss)  || !this.character.isDead()) {
-                this.bg_Sound.play();
-                this.bg_Sound.loop = true;
-            }
-        }, 100)
-        setInterval(() => {
-            if (stopAudio || (enemy.isDead() && enemy instanceof Endboss)  || this.character.isDead()) {
-                this.bg_Sound.pause();
-            }
-        }, 100)
-    })
-    }
+    
 
     setWorld() {
         this.character.world = this;

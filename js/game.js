@@ -3,8 +3,7 @@ let world;
 let keyboard = new Keyboard();
 let game = document.getElementById('content');
 let stopAudio = false;
-
-
+let fullscreenMode = false;
 
 
 function init() {
@@ -17,15 +16,16 @@ function init() {
   document.getElementById('endscreen-container').classList.add('d-none');
 }
 
+
 function restart() {
   location.reload();
 }
 
 
-
 function clearAllIntervals() {
   for (let i = 1; i < 9999; i++) window.clearInterval(i);
 };
+
 
 window.addEventListener('keydown', (event) => {
   if (event.keyCode == 39) {
@@ -48,6 +48,7 @@ window.addEventListener('keydown', (event) => {
   }
 })
 
+
 window.addEventListener('keyup', (event) => {
   if (event.keyCode == 39) {
     keyboard.right = false;
@@ -69,49 +70,15 @@ window.addEventListener('keyup', (event) => {
   }
 })
 
+
 /* Mobileversion Character Control*/
-
 function mobileBtn() {
-  document.getElementById('walk-button-left').addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    keyboard.left = true;
-  });
-
-  document.getElementById('walk-button-left').addEventListener('touchend', (e) => {
-    e.preventDefault();
-    keyboard.left = false;
-  });
-
-  document.getElementById('walk-button-right').addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    keyboard.right = true;
-  });
-
-  document.getElementById('walk-button-right').addEventListener('touchend', (e) => {
-    e.preventDefault();
-    keyboard.right = false;
-  });
-
-  document.getElementById('jump-button').addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    keyboard.space = true;
-  });
-
-  document.getElementById('jump-button').addEventListener('touchend', (e) => {
-    e.preventDefault();
-    keyboard.space = false;
-  });
-
-  document.getElementById('shoot-button').addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    keyboard.D = true;
-  });
-
-  document.getElementById('shoot-button').addEventListener('touchend', (e) => {
-    e.preventDefault();
-    keyboard.D = false;
-  });
+  bindLeftBtn();
+  bindRightBtn();
+  bindSpaceBtn();
+  bindDBtn();
 }
+
 
 function checkScreen() {
   setInterval(() => {
@@ -123,13 +90,13 @@ function checkScreen() {
   }, 10)
 }
 
+
 function muteAudio() {
   if (!stopAudio) {
     document.getElementById('audioOff').classList.remove('d-none');
     document.getElementById('audioOn').classList.add('d-none');
     stopAudio = true;
   }
-
 }
 
 
@@ -139,5 +106,124 @@ function turnSoundOn() {
     document.getElementById('audioOn').classList.remove('d-none');
     stopAudio = false;
   }
+}
 
+
+function fullscreenchanged() {
+  if (document.fullscreenElement == null) {
+    let fullscreenCont = document.getElementById('canvas-cont');
+    closeFullCanvas();
+    fullscreenMode = false;
+  }
+}
+document.addEventListener('fullscreenchange', fullscreenchanged);
+
+
+function setFullscreen() {
+  let fullscreenCont = document.getElementById('canvas');
+  if (!fullscreenMode) {
+    enterFullscreen(fullscreenCont);
+    showCanvasinFull();
+    fullscreenMode = true;
+  } else {
+    exitFullscreen(fullscreenCont);
+    closeFullCanvas();
+    fullscreenMode = false;
+  }
+}
+
+
+function closeFullCanvas() {
+  let canvas = document.getElementById('canvas');
+  let canvasCont = document.getElementById('content');
+  let headline = document.getElementById('headline');
+  if (screen.height < 480) {
+    canvasCont.style.maxWidth = '560px';
+    canvasCont.style.maxHeight = '400px';
+  } else {
+    canvasCont.style.maxWidth = '720px';
+    canvasCont.style.maxHeight = '480px';
+  }
+  canvas.style.height = '480px';
+  headline.classList.remove('d-none');
+}
+
+
+function showCanvasinFull() {
+  let canvas = document.getElementById('canvas');
+  let canvasCont = document.getElementById('content');
+  let headline = document.getElementById('headline');
+  canvasCont.style.maxWidth = 'none';
+  canvasCont.style.maxHeight = 'none';
+  canvas.style.width = '100%';
+  canvas.style.height = '100vh';
+  headline.classList.add('d-none');
+}
+
+
+function enterFullscreen(element) {
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.msRequestFullscreen) {      // for IE11 (remove June 15, 2022)
+    element.msRequestFullscreen();
+  } else if (element.webkitRequestFullscreen) {  // iOS Safari
+    element.webkitRequestFullscreen();
+  }
+}
+
+
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  }
+}
+
+
+function bindLeftBtn() {
+  document.getElementById('walk-button-left').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keyboard.left = true;
+  });
+  document.getElementById('walk-button-left').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keyboard.left = false;
+  });
+}
+
+
+function bindRightBtn() {
+  document.getElementById('walk-button-right').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keyboard.right = true;
+  });
+  document.getElementById('walk-button-right').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keyboard.right = false;
+  });
+}
+
+
+function bindSpaceBtn() {
+  document.getElementById('jump-button').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keyboard.space = true;
+  });
+  document.getElementById('jump-button').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keyboard.space = false;
+  });
+}
+
+
+function bindDBtn() {
+  document.getElementById('shoot-button').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keyboard.D = true;
+  });
+  document.getElementById('shoot-button').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keyboard.D = false;
+  });
 }

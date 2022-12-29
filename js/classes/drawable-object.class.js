@@ -26,55 +26,28 @@ class DrawableObject {
             this.imageCash[path] = img;
         });
     }
-// Rahem um die Objekte, um die Collision festzustellen
-    /*drawFrame(ctx) {
-        if (this instanceof Character) {
-            ctx.beginPath();
-            ctx.lineWidth = "2";
-            ctx.strokeStyle = "blue";
-            ctx.rect(this.x + 50, this.y + 100, this.width - 100, this.height -110);
-            ctx.stroke();
+
+    setPercentage(percentage) {
+        this.percentage = percentage; 
+        let path = this.IMAGES[this.resolveImageIndex()]
+        this.img = this.imageCash[path];
+    }
+
+    resolveImageIndex() {
+        if (this.percentage == 10) {
+            return 5;
+        } else if (this.percentage > 8) {
+            return 4;
+        } else if (this.percentage > 6) {
+            return 3;
+        } else if (this.percentage > 4) {
+            return 2;
+        } else if (this.percentage > 2) {
+            return 1;
+        } else {
+            return 0;
         }
     }
 
-    drawFrameChicken(ctx) {
-        if (this instanceof Character) {
-            ctx.beginPath();
-            ctx.lineWidth = "2";
-            ctx.strokeStyle = "red";
-            ctx.rect(this.x, this.y, this.width, this.height);
-            ctx.stroke();
-        }
-    }
-
-    drawFrameEndboss(ctx) {
-        if (this instanceof Endboss) {
-            ctx.beginPath();
-            ctx.lineWidth = "2";
-            ctx.strokeStyle = "blue";
-            ctx.rect(this.x + 40, this.y + 100, this.width -70, this.height - 130);
-            ctx.stroke();
-        }
-    }
-
-    drawFrameCoin(ctx) {
-        if (this instanceof Coin) {
-            ctx.beginPath();
-            ctx.lineWidth = "2";
-            ctx.strokeStyle = "blue";
-            ctx.rect(this.x + 30, this.y + 30, this.width - 60, this.height - 60);
-            ctx.stroke();
-        }
-    }
-
-    drawFrameBottle(ctx) {
-        if (this instanceof Bottle || this instanceof ThrowableObject) {
-            ctx.beginPath();
-            ctx.lineWidth = "2";
-            ctx.strokeStyle = "blue";
-            ctx.rect(this.x + 25, this.y + 20, this.width - 40, this.height - 30);
-            ctx.stroke();
-        }
-    }*/
-   
+    
 }
