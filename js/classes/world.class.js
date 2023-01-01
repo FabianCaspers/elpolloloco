@@ -28,10 +28,10 @@ class World {
         this.draw();
         this.setWorld();
         this.run();
-          
+
     }
 
-    
+
 
     setWorld() {
         this.character.world = this;
@@ -39,20 +39,30 @@ class World {
     }
 
     run() {
-        setInterval(() => {  
+        setInterval(() => {
             this.checkCollision();
             this.checkThrowObjects();
         }, 200);
     }
 
-    checkThrowObjects() {
-        if (this.keyboard.D && this.throwableBottles > 0) {
+    checkTime = true;
+
+    async checkThrowObjects() {
+        if (this.keyboard.D && this.throwableBottles > 0 && this.checkTime) {
             let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 50);
             this.throwableObjects.push(bottle);
             this.throwableBottles--;
             this.bottleBar.setPercentage(this.throwableBottles);
+            if (this.throwableBottles > 0) {
+                this.checkTime = false;
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                this.checkTime = true;
+            }
         }
     }
+    
+
+
 
 
     checkCollision() {

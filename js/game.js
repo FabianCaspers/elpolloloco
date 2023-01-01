@@ -111,7 +111,7 @@ function turnSoundOn() {
 
 function fullscreenchanged() {
   if (document.fullscreenElement == null) {
-    let fullscreenCont = document.getElementById('canvas-cont');
+    let fullscreenCont = document.getElementById('canvas');
     closeFullCanvas();
     fullscreenMode = false;
   }
@@ -150,15 +150,21 @@ function closeFullCanvas() {
 
 
 function showCanvasinFull() {
-  let canvas = document.getElementById('canvas');
-  let canvasCont = document.getElementById('content');
-  let headline = document.getElementById('headline');
-  canvasCont.style.maxWidth = 'none';
-  canvasCont.style.maxHeight = 'none';
-  canvas.style.width = '100%';
-  canvas.style.height = '100vh';
-  headline.classList.add('d-none');
+  let fullscreenCont = document.getElementById('canvas');
+  fullscreenCont.style.height = '100%';
+  fullscreenCont.style.width = '100%';
+  document.getElementById('headline').classList.add('d-none');
+  document.getElementById('fullscreen').classList.add('d-none');
+
+  if (fullscreenMode) {
+    closeButton.classList.remove('d-none');
+    document.getElementById('fullscreen').classList.remove('d-none');
+  } else {
+    closeButton.classList.add('d-none');
+    document.getElementById('fullscreen').classList.add('d-none');
+  }
 }
+
 
 
 function enterFullscreen(element) {
