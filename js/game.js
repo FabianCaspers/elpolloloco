@@ -156,13 +156,6 @@ function showCanvasinFull() {
   document.getElementById('headline').classList.add('d-none');
   document.getElementById('fullscreen').classList.add('d-none');
 
-  if (fullscreenMode) {
-    closeButton.classList.remove('d-none');
-    document.getElementById('fullscreen').classList.remove('d-none');
-  } else {
-    closeButton.classList.add('d-none');
-    document.getElementById('fullscreen').classList.add('d-none');
-  }
 }
 
 
