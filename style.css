@@ -85,7 +85,7 @@ canvas {
 }
 
 #walk-buttons {
-    display: flex;
+    display: none;
 }
 
 #action-buttons {
@@ -155,7 +155,7 @@ canvas {
     border-radius: 4px;
     border-style: solid 2px;
     padding: 4px;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     
@@ -181,6 +181,14 @@ canvas {
     right: 10px;
 }
 
+
+#jump-button {
+    display: none;
+}
+
+#shoot-button {
+    display: none;
+}
 
 @media only screen and (max-width:720px) {
     #content {
@@ -211,6 +219,22 @@ canvas {
     }
 
     #mobile-buttons {
+        display: flex;
+    }
+
+    #walk-buttons {
+        display: flex;
+    }
+
+    #action-buttons {
+        display: flex;
+    }
+
+    #jump-button {
+        display: flex;
+    }
+    
+    #shoot-button {
         display: flex;
     }
 
@@ -251,6 +275,22 @@ canvas {
         display: flex;
     }
 
+    #walk-buttons {
+        display: flex;
+    }
+
+    #action-buttons {
+        display: flex;
+    }
+
+    #jump-button {
+        display: flex;
+    }
+    
+    #shoot-button {
+        display: flex;
+    }
+
     .howTopPlay {
         display: none;
     }
@@ -268,6 +308,22 @@ canvas {
     }
 
     #mobile-buttons {
+        display: flex;
+    }
+
+    #walk-buttons {
+        display: flex;
+    }
+
+    #action-buttons {
+        display: flex;
+    }
+
+    #jump-button {
+        display: flex;
+    }
+    
+    #shoot-button {
         display: flex;
     }
 
