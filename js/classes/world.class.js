@@ -86,7 +86,7 @@ class World {
 
     collidingEnemyJump() {
         this.level.enemies.forEach((enemy) => {
-            if (!this.character.isHurt() && this.character.isColliding(enemy) && this.character.isAboveGround() && (enemy instanceof Chicken || enemy instanceof SmallChicken)) {
+            if (!this.character.isHurt() && this.character.speedY <0 && this.character.isColliding(enemy) && this.character.isAboveGround() && (enemy instanceof Chicken || enemy instanceof SmallChicken)) {
                 enemy.hit();
                 setTimeout(() => {
                     const index = this.level.enemies.indexOf(enemy);
