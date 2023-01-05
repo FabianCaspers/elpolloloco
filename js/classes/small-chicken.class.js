@@ -4,15 +4,16 @@ class SmallChicken extends MovableObject {
   width = 45;
   energy = 5;
 
+
   IMAGES_WALKING = [
     "./img/3_enemies_chicken/chicken_small/1_walk/1_w.png",
     "./img/3_enemies_chicken/chicken_small/1_walk/3_w.png",
     "./img/3_enemies_chicken/chicken_small/1_walk/2_w.png",
   ];
-
   IMAGES_DEAD = [
     "./img/3_enemies_chicken/chicken_small/2_dead/dead.png"
   ]
+
 
   offset = {
     top: 0,
@@ -21,6 +22,7 @@ class SmallChicken extends MovableObject {
     bottom: 0,
   };
 
+
   constructor() {
     super().loadImage("./img/3_enemies_chicken/chicken_small/1_walk/1_w.png");
     this.loadImages(this.IMAGES_WALKING);
@@ -28,8 +30,8 @@ class SmallChicken extends MovableObject {
     this.x = 200 + Math.random() * 3600; // immer Zahl zwischen 200 und 700. Math.random() gibt immer einne zufällige zahl raus zischen 0 und 1.
     this.animate();
     this.speed = 0.15 + Math.random() * 0.25;
-    
   }
+  
 
   animate() {
     setInterval(() => {

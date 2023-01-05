@@ -6,8 +6,6 @@ class EndbossBar extends DrawableObject {
         "./img/7_statusbars/1_statusbar/2_statusbar_health/orange/60.png",
         "./img/7_statusbars/1_statusbar/2_statusbar_health/orange/80.png",
         "./img/7_statusbars/1_statusbar/2_statusbar_health/orange/100.png",
-       
-    
     ];
 
 
@@ -20,6 +18,4 @@ class EndbossBar extends DrawableObject {
         this.height = 60;
         this.setPercentage(25);
     }
-    
-
 }

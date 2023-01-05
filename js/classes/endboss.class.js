@@ -33,18 +33,17 @@ class Endboss extends MovableObject {
     "./img/4_enemie_boss_chicken/3_attack/G19.png",
     "./img/4_enemie_boss_chicken/3_attack/G20.png",
   ];
-
   IMAGES_HURT = [
     "./img/4_enemie_boss_chicken/4_hurt/G21.png",
     "./img/4_enemie_boss_chicken/4_hurt/G22.png",
     "./img/4_enemie_boss_chicken/4_hurt/G23.png",
   ];
-
   IMAGES_DEAD = [
     "./img/4_enemie_boss_chicken/5_dead/G24.png",
     "./img/4_enemie_boss_chicken/5_dead/G25.png",
     "./img/4_enemie_boss_chicken/5_dead/G26.png",
   ];
+
 
   offset = {
     top: 80,
@@ -52,6 +51,8 @@ class Endboss extends MovableObject {
     right: 50,
     bottom: 30,
   };
+
+
   constructor() {
     super().loadImage(this.IMAGES_ALERT[0]);
     this.loadImages(this.IMAGES_ALERT);
@@ -63,12 +64,14 @@ class Endboss extends MovableObject {
     this.animate();
   }
 
+
   animate() {
     this.intervalMoveLeft();
     this.endbossAlert();
     this.endbossHurt();
     this.enbossIsDead();
   }
+
 
   intervalMoveLeft() {
     setInterval(() => {
@@ -79,6 +82,7 @@ class Endboss extends MovableObject {
     }, 100);
   }
 
+
   endbossAlert() {
     setInterval(() => {
       if (this.energy == 25) {
@@ -86,6 +90,7 @@ class Endboss extends MovableObject {
       }
     }, 400);
   }
+
 
   endbossHurt() {
     setInterval(() => {
@@ -95,6 +100,7 @@ class Endboss extends MovableObject {
     }, 100);
   }
 
+
   enbossIsDead() {
     setInterval(() => {
       if (this.isDead()) {
@@ -103,6 +109,4 @@ class Endboss extends MovableObject {
       }
     }, 300);
   }
-
-
 }

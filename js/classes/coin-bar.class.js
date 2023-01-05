@@ -6,7 +6,6 @@ class CoinBar extends DrawableObject {
         "./img/7_statusbars/1_statusbar/1_statusbar_coin/green/60.png",
         "./img/7_statusbars/1_statusbar/1_statusbar_coin/green/80.png",
         "./img/7_statusbars/1_statusbar/1_statusbar_coin/green/100.png",
-    
     ];
 
 
@@ -18,7 +17,6 @@ class CoinBar extends DrawableObject {
         this.width = 200;
         this.height = 60;
         this.setPercentage(0);
-    }
-    
+    } 
 }
    

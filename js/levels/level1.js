@@ -1,5 +1,6 @@
 let level1;
 
+
 function initLevel() {
   level1 = new Level(
     createEnemies(),
@@ -9,6 +10,7 @@ function initLevel() {
     createBottles()
   );
 }
+
 
 function createEnemies() {
   return [
@@ -31,6 +33,7 @@ function createEnemies() {
   ]
 }
 
+
 function createClouds() {
   return [
     new Cloud('./img/5_background/layers/4_clouds/1.png', 50),
@@ -43,6 +46,7 @@ function createClouds() {
     new Cloud('./img/5_background/layers/4_clouds/2.png', 4600)
   ]
 }
+
 
 function createBackground() {
   return [
@@ -144,6 +148,7 @@ function createBackground() {
   ]
 }
 
+
 function createCoins() {
   return [
     new Coin(),
@@ -159,6 +164,7 @@ function createCoins() {
 
   ]
 }
+
 
 function createBottles() {
   return [

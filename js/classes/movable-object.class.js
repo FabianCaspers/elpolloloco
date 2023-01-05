@@ -5,15 +5,12 @@ class MovableObject extends DrawableObject {
   acceleration = 1;
   energy = 100;
   lastHit = 0;
-
   offset = {
     top: 0,
-    left: 10,
-    right: 10,
+    left: 0,
+    right: 0,
     bottom: 0,
   };
-
-
 
 
   hit() {
@@ -25,15 +22,18 @@ class MovableObject extends DrawableObject {
     }
   }
 
+
   isHurt() {
     let timepassed = new Date().getTime() - this.lastHit; // Difference in ms
     timepassed = timepassed / 1000 // Difference in s
     return timepassed < 0.5;
   }
 
+
   isDead() {
     return this.energy == 0;
   }
+
 
   applyGravity() {
     setInterval(() => {
@@ -43,6 +43,7 @@ class MovableObject extends DrawableObject {
       }
     }, 1000 / 25);
   }
+
 
   isAboveGround() {
     if( this instanceof ThrowableObject){ // Bottle should always fall
@@ -61,21 +62,24 @@ class MovableObject extends DrawableObject {
     this.currentImage++;
   }
 
+
   jump() {
     this.speedY = 15;
   }
+
 
   moveRight() {
     this.x += this.speed;
   }
 
+
   moveLeft() {
     this.x -= this.speed;
   }
 
+
   isColliding(mo) {
     return this.isHorizontalIntersection(mo) && this.isVerticalIntersection(mo);
-    
   }
 
   
@@ -83,43 +87,48 @@ class MovableObject extends DrawableObject {
     return !(this.isAbove(mo) || this.isBelow(mo));
   }
 
+
   isHorizontalIntersection(mo){
     return !(this.isLeftSide(mo) || this.isRightSide(mo));
   }
+
 
   isAbove(mo){
     return !(this.getHitBoxBottomPos() > mo.getHitBoxTopPos());
   }
 
+
   isBelow(mo){
     return !(this.getHitBoxTopPos() < mo.getHitBoxBottomPos());
   }
+
 
   isLeftSide(mo){
     return !(this.getHitBoxRightPos() > mo.getHitBoxLeftPos());
   }
 
+
   isRightSide(mo){
     return !(this.getHitBoxLeftPos() < mo.getHitBoxRightPos());
   }
+
 
   getHitBoxRightPos(){
     return this.x + this.width - this.offset.right;
   }
 
+
   getHitBoxLeftPos(){
     return this.x + this.offset.left;
   }
+
 
   getHitBoxTopPos(){
     return this.y + this.offset.top;
   }
 
+
   getHitBoxBottomPos(){
     return this.y + this.height - this.offset.bottom;
   }
-
-
-  
-
 }

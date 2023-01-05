@@ -8,8 +8,6 @@ class DrawableObject {
     width = 150;
     
 
-   
-
     draw(ctx) {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
@@ -27,11 +25,13 @@ class DrawableObject {
         });
     }
 
+
     setPercentage(percentage) {
         this.percentage = percentage; 
         let path = this.IMAGES[this.resolveImageIndex()]
         this.img = this.imageCash[path];
     }
+
 
     resolveImageIndex() {
         if (this.percentage == 10) {
@@ -48,6 +48,4 @@ class DrawableObject {
             return 0;
         }
     }
-
-    
 }
